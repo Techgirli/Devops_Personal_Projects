@@ -1,4 +1,4 @@
-!/bin/bash                                                                     
+#!/bin/bash                                                                     
 
 FIRST_NAME=$1
 LAST_NAME=$2
