@@ -1,0 +1,23 @@
+name: Hello World Job
+
+on:
+  push:
+     branches: 
+     - main
+
+jobs: 
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Hello
+        run: echo "Hello WOrld"
+
+
+  how-are-you:
+     runs-on: ubuntu-latest
+     steps:
+      - name: ask how the person is
+        run: echo "how are you"
+
+ 
+    
