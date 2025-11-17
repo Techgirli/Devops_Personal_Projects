@@ -1,16 +1,15 @@
-
-num1 = float(input("Enter first number: "))
-# operator
-op = input("Enter operator: ")
-num2 = float(input("Enter second number: "))
-
-if op == "+":
-    print(num1 + num2)
-elif op == "-":
-    print(num1 - num2)
-elif op == "*":
-    print(num1 * num2)
-elif op == "/":
-    print(num1 / num2)
+secret_word = "giraffe"
+guess = ""
+guess_count = 0
+guess_limit = 3
+out_of_guesses = False
+while guess != secret_word and not (out_of_guesses):
+    if guess_count < guess_limit:
+        guess = input("Enter guess: ")
+        guess_count += 1
+    else:
+        out_of_guesses = True
+if out_of_guesses:
+    print("Out of guesses, YOU LOSE!")
 else:
-    print("Invalid Operator")
+    print("You win!")
