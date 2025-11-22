@@ -1,0 +1,22 @@
+{
+  "name": "dinosaur_generator",
+  "version": "1.0.0",
+  "description": "A website with cool tricks",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Miracle",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "Devops_Personal_Projects"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
