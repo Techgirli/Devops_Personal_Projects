@@ -1,102 +1,76 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%; /* important for flex centering */
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
 }
 
 body {
   display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: center;     /* vertical centering */
-  font-family: 'Arial', sans-serif;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   background: url('https://images.unsplash.com/photo-1601758123927-0e70c8dc2f5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920') no-repeat center center fixed;
   background-size: cover;
+  color: white;
   overflow: hidden;
-  color: #fff;
-  text-align: center;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
 }
 
 h1 {
   font-size: 3rem;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 button {
-  padding: 0.7rem 1.5rem;
+  padding: 1rem 2rem;
   font-size: 1.3rem;
-  cursor: pointer;
-  border-radius: 5px;
   border: none;
+  border-radius: 5px;
   background-color: #ff5722;
-  color: white;
-  transition: all 0.3s ease;
-}
-button:hover {
-  background-color: #e64a19;
+  color: #fff;
+  cursor: pointer;
 }
 
 #dinosaurDisplay {
+  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap: 2rem;
   width: 90%;
   max-width: 1200px;
 }
 
-.dino-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: fadeIn 0.5s ease;
-}
-
 .dino-card img {
-  width: 400px; /* bigger images */
-  max-width: 90vw; /* responsive */
-  border: 3px solid #fff;
+  width: 400px;
+  max-width: 90vw;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
 }
 
-.dino-card img:hover {
-  transform: scale(1.1) rotate(-2deg);
-}
-
-.dino-card h2 {
-  font-size: 1.8rem;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-  margin: 0.5rem 0;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Floating dinos */
 .floating-dinos {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
-  overflow: hidden;
+  z-index: 1;
 }
+
 .floating-dinos span {
   position: absolute;
-  font-size: 2.5rem;
-  animation: float 8s linear infinite;
+  font-size: 3rem;
+  animation: float 10s linear infinite;
 }
+
 @keyframes float {
-  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-20vh) translateX(50px); opacity: 0; }
+  0% {
+    transform: translateY(100vh);
+  }
+
+  100% {
+    transform: translateY(-20vh);
+  }
 }
