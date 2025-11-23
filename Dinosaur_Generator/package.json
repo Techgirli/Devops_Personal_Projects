@@ -1,22 +1,27 @@
 {
-  "name": "dinosaur_generator",
+  "name": "dinosaur-generator",
   "version": "1.0.0",
-  "description": "A website with cool tricks",
+  "description": "A fun dinosaur generation project using APIs, Express, and Node.js.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
-  "keywords": [],
+  "keywords": ["dinosaurs", "express", "nodejs", "api", "fun-project"],
   "author": "Miracle",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
-    "nodemon": "3.1.11"
+    "nodemon": "^3.1.11"
   },
   "repository": {
     "type": "git",
-    "url": "Devops_Personal_Projects"
+    "url": "https://github.com/techgirli/Devops_Personal_Projects"
   }
 }
