@@ -1,0 +1,74 @@
+/* Full-page background */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: Arial, sans-serif;
+  background: url("https://images.unsplash.com/photo-1504198266285-165a14ac2c3d?auto=format&fit=crop&w=1800&q=80") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Title */
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 8px black;
+}
+
+/* Button */
+#btnLoad {
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+  margin: 20px 0;
+
+  transition: 0.3s ease;
+}
+
+#btnLoad:hover {
+  background: #218838;
+  transform: scale(1.05);
+}
+
+/* Display container */
+#dinosaurDisplay {
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 6px black;
+}
+
+/* Dinosaur images */
+#dinosaurDisplay img {
+  width: 350px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+
+  margin-top: 20px;
+  animation: fadeIn 0.8s ease;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
