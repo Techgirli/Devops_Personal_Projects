@@ -1,23 +1,38 @@
-document.getElementById("btnLoad").addEventListener("click", loadDino);
+// 🔥 Background slideshow images
+const backgrounds = [
+  "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+  "https://images.unsplash.com/photo-1521295121783-8a321d551ad2",
+  "https://images.unsplash.com/photo-1519817650390-64a93db511aa"
+];
 
-async function loadDino() {
-    const display = document.getElementById("dinosaurDisplay");
-    display.innerHTML = "Loading...";
+// Change background every 8 seconds
+let bgIndex = 0;
+function updateBackground() {
+  document.getElementById("bg").style.backgroundImage =
+    `url('${backgrounds[bgIndex]}?auto=format&fit=crop&w=1920&q=80')`;
+  bgIndex = (bgIndex + 1) % backgrounds.length;
+}
+setInterval(updateBackground, 8000);
+updateBackground(); // Start immediately
 
-    try {
-        const nameRes = await fetch("/dinoname");
-        const nameData = await nameRes.json();
 
-        const dino = nameData?.dinosaurs?.[0] ?? { name: "Unknown Dinosaur" };
+// 🔥 Dinosaur API
+async function generateDinosaurs() {
+  try {
+    const response = await fetch("https://dinosaur-facts-api.shultzlab.com/dinosaurs/random");
+    const dino = await response.json();
 
-        const imageRes = await fetch(`/dinoimage?q=${dino.name}`);
-        const imageData = await imageRes.json();
+    document.getElementById("dinoName").textContent = dino.name || "Unknown Dinosaur";
+    document.getElementById("dinoImage").src = dino.image || "";
 
-        display.innerHTML = `
-            <h2>${dino.name}</h2>
-            <img src="${imageData.image}" alt="${dino.name}">
-        `;
-    } catch (err) {
-        display.innerHTML = "Failed to load dinosaur. Try again!";
-    }
+    // Add fade animation
+    document.getElementById("dinoImage").style.animation = "none";
+    void document.getElementById("dinoImage").offsetWidth;
+    document.getElementById("dinoImage").style.animation = "fadeIn 0.6s ease";
+
+  } catch (error) {
+    document.getElementById("dinoName").textContent = "Failed to load dinosaur!";
+    document.getElementById("dinoImage").src = "";
+  }
 }
