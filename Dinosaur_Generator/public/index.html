@@ -7,12 +7,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <div class="container">
     <h1>🦖 Dinosaur Generator 🌋</h1>
-    <button id="btnLoad">Generate Dinosaurs</button>
-    <div id="dinosaurDisplay">Click the button to load dinosaurs!</div>
+    <button onclick="generateDinosaurs()">Generate Dinosaurs</button>
+
+    <h2 class="dino-name" id="dinoName">Unknown Dinosaur</h2>
+    <img id="dinoImage" class="dino-img" src="" alt="Dinosaur Image" />
   </div>
 
+  <!-- Floating effects container -->
   <div class="floating-dinos"></div>
 
   <script src="script.js"></script>

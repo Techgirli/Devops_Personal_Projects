@@ -1,74 +1,93 @@
-/* Full-page background */
+/* ---- PAGE BACKGROUND ---- */
 body {
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  font-family: Arial, sans-serif;
-  background: url("https://images.unsplash.com/photo-1504198266285-165a14ac2c3d?auto=format&fit=crop&w=1800&q=80") no-repeat center center fixed;
-  background-size: cover;
-}
-
-/* Title */
-h1 {
-  font-size: 2.5rem;
-  color: #fff;
-  text-shadow: 2px 2px 8px black;
-}
-
-/* Button */
-#btnLoad {
-  padding: 12px 25px;
-  font-size: 1.2rem;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  background: #28a745;
+  text-align: center;
   color: white;
-  font-weight: bold;
-  margin: 20px 0;
 
-  transition: 0.3s ease;
+  background: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470") no-repeat center center fixed;
+  background-size: cover;
+
+  animation: fadeIn 1.2s ease-in-out;
 }
 
-#btnLoad:hover {
-  background: #218838;
+/* ---- CONTAINER ---- */
+.container {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 40px;
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  width: 70%;
+  max-width: 800px;
+}
+
+/* ---- TITLE ---- */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+/* ---- BUTTON ---- */
+button {
+  padding: 12px 28px;
+  background: #28a745;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #1e7e34;
   transform: scale(1.05);
 }
 
-/* Display container */
-#dinosaurDisplay {
-  margin-top: 20px;
-  text-align: center;
-  color: white;
-  font-size: 1.5rem;
-  text-shadow: 2px 2px 6px black;
+/* ---- DINOSAUR NAME ---- */
+.dino-name {
+  margin-top: 25px;
+  font-size: 2rem;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
 }
 
-/* Dinosaur images */
-#dinosaurDisplay img {
-  width: 350px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-
+/* ---- IMAGE ---- */
+.dino-img {
+  width: 420px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
   margin-top: 20px;
-  animation: fadeIn 0.8s ease;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  animation: popIn 0.4s ease-out;
 }
 
-/* Fade animation */
+/* ---- ANIMATIONS ---- */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
   }
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
     transform: scale(1);
+    opacity: 1;
   }
 }
