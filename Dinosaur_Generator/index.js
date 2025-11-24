@@ -1,80 +1,34 @@
-import 'dotenv/config';
-import express from 'express';
-import fetch from 'node-fetch';
-import cors from 'cors';
-import net from 'net';
+// Export the HTML as a template string to avoid parsing HTML as JavaScript in a .js file.
+const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🦖 Cute Dino Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-const app = express();
-app.use(cors());
-app.use(express.static('public'));
+  <div class="container">
+    <h1 class="title">🦖 Cute Dinosaur Generator 🌋</h1>
 
-let PORT = parseInt(process.env.PORT) || 9000;
+    <button id="generateBtn">Generate Dinosaur</button>
+    <button id="toggleModeBtn">🍼 Baby Dino Mode</button>
+    <button id="autoBgBtn">🎨 Auto Background: OFF</button>
 
-// Function to find an available port
-const getAvailablePort = (port) => new Promise((resolve) => {
-  const server = net.createServer();
-  server.once('error', () => resolve(getAvailablePort(port + 1)));
-  server.once('listening', () => {
-    server.close(() => resolve(port));
-  });
-  server.listen(port);
-});
+    <img id="dinoImage" class="dino-img" src="" alt="">
 
-// ---------------------
-// Dinosaur Names Route
-// ---------------------
-app.get('/dinoname', async (req, res) => {
-  try {
-    const response = await fetch('https://dinosaur-api1.p.rapidapi.com/dinosaurs/hip/saurischia', {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-key': process.env.RAPIDAPI_KEY,
-        'x-rapidapi-host': 'dinosaur-api1.p.rapidapi.com'
-      }
-    });
-    const data = await response.json();
-    if (!data || data.length === 0) return res.status(404).json({ message: 'No dinosaurs found' });
-    res.json(data);
-  } catch (err) {
-    console.error('Error fetching dinosaur names:', err.message);
-    res.status(500).json({ error: 'Failed to fetch dinosaur names' });
-  }
-});
+    <p id="dinoFact" class="fact-box"></p>
+  </div>
 
-// ---------------------
-// Dinosaur Images Route
-// ---------------------
-app.get('/dinoimage', async (req, res) => {
-  try {
-    const query = req.query.q || 'dinosaur';
-    const url = `https://bing-image-search5.p.rapidapi.com/images/search?q=${encodeURIComponent(query)}&count=10`;
+  <div class="floating-dinos"></div>
+  <canvas id="sparkles"></canvas>
 
-    const apiRes = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-key': process.env.RAPIDAPI_KEY,
-        'x-rapidapi-host': 'bing-image-search5.p.rapidapi.com'
-      }
-    });
+  <audio id="dinoSound"></audio>
 
-    const json = await apiRes.json();
-    const images = (json.value || []).map(i => i.contentUrl).filter(Boolean);
+  <script src="script.js"></script>
+</body>
+</html>
+`;
 
-    const randomImage = images.length > 0
-      ? images[Math.floor(Math.random() * images.length)]
-      : 'https://via.placeholder.com/450x300?text=Dinosaur+Image+Unavailable';
-
-    res.json({ imageUrl: randomImage });
-  } catch (err) {
-    console.error('Error fetching dinosaur images:', err.message);
-    res.status(500).json({ error: 'Failed to fetch dinosaur image' });
-  }
-});
-
-// ---------------------
-// Start Server
-// ---------------------
-(async () => {
-  PORT = await getAvailablePort(PORT);
-  app.listen(PORT, () => console.log(` Dinosaur Generator running at http://localhost:${PORT}`));
-})();
+module.exports = html;

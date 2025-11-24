@@ -8,7 +8,13 @@
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
-  "keywords": ["dinosaurs", "express", "nodejs", "api", "fun-project"],
+  "keywords": [
+    "dinosaurs",
+    "express",
+    "nodejs",
+    "api",
+    "fun-project"
+  ],
   "author": "Miracle",
   "license": "ISC",
   "dependencies": {
@@ -22,6 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/techgirli/Devops_Personal_Projects"
-  }
+    "url": "git+https://github.com/techgirli/Devops_Personal_Projects.git"
+  },
+  "bugs": {
+    "url": "https://github.com/techgirli/Devops_Personal_Projects/issues"
+  },
+  "homepage": "https://github.com/techgirli/Devops_Personal_Projects#readme"
 }
