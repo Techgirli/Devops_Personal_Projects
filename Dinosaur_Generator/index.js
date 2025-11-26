@@ -1,4 +1,3 @@
-// Export the HTML as a template string to avoid parsing HTML as JavaScript in a .js file.
 const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +8,9 @@ const html = `<!DOCTYPE html>
 </head>
 <body>
 
+  <!-- FULLSCREEN BACKGROUND -->
+  <div id="bg"></div>
+
   <div class="container">
     <h1 class="title">🦖 Cute Dinosaur Generator 🌋</h1>
 
@@ -16,8 +18,8 @@ const html = `<!DOCTYPE html>
     <button id="toggleModeBtn">🍼 Baby Dino Mode</button>
     <button id="autoBgBtn">🎨 Auto Background: OFF</button>
 
+    <h2 id="dinoName" class="dino-name"></h2>
     <img id="dinoImage" class="dino-img" src="" alt="">
-
     <p id="dinoFact" class="fact-box"></p>
   </div>
 
