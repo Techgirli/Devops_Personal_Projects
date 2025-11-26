@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A fun dinosaur generation project using APIs, Express, and Node.js.",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
