@@ -12,7 +12,7 @@
   transition: background-image 1s ease-in-out;
 }
 
-/* CENTER CONTAINER */
+/* CENTER LAYOUT */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -21,6 +21,7 @@ body {
   align-items: center;
   height: 100vh;
   overflow: hidden;
+  background: #000;
 }
 
 .container {
@@ -34,7 +35,7 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* BUTTON STYLES */
+/* BUTTON */
 button {
   padding: 12px 25px;
   background: #1db954;
@@ -52,14 +53,47 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* IMAGE STYLING */
+/* IMAGE */
 .dino-img {
   width: 280px;
   height: 280px;
   object-fit: contain;
-  margin-top: 15px;
-  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.7));
+  margin-top: 20px;
   animation: fadeIn 0.6s ease;
+}
+
+/* TEXT */
+.dino-name {
+  font-size: 26px;
+  margin-top: 10px;
+  text-shadow: 0 0 10px black;
+}
+
+.fact-box {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 12px;
+  font-size: 18px;
+  backdrop-filter: blur(4px);
+}
+
+/* FLOATING DINOS */
+.floating-dinos img {
+  position: absolute;
+  width: 80px;
+  opacity: 0.7;
+  animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-120vh) rotate(360deg);
+  }
 }
 
 /* ANIMATION */
