@@ -30,7 +30,4 @@ const html = `<!DOCTYPE html>
 
   <script src="script.js"></script>
 </body>
-</html>
-`;
-
-module.exports = html;
+</html>`;
